@@ -17,24 +17,29 @@ def main():
     Tori_rct.center = 300, 200
     key_lst = pg.key.get_pressed()
     tmr = 0
+    y=0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         key_lst = pg.key.get_pressed()
+        if key_lst:
+            Tori_rct.move_ip((-1,0))
         if key_lst[pg.K_UP]:
             Tori_rct.move_ip((0,-1))
         if key_lst[pg.K_DOWN]:
-            Tori_rct.move_ip((0,1))
+            Tori_rct.move_ip((0,+1))
         if key_lst[pg.K_LEFT]:
             Tori_rct.move_ip((-1,0))
         if key_lst[pg.K_RIGHT]:
-            Tori_rct.move_ip((1,0))
+            Tori_rct.move_ip((+2,0))
 
         x = tmr%3200
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img2,[-x+1600,0])
         screen.blit(bg_img,[-x+3200,0])
         screen.blit(Tori_1,Tori_rct)
+        # Tori_rct.x = 300-x
+        y -=2
         pg.display.update()
         tmr += 1        
         clock.tick(200)
