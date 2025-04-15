@@ -21,10 +21,8 @@ def main():
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
-        dx,dy = 0,0
+        dx,dy = -1,0
         key_lst = pg.key.get_pressed()
-        if key_lst:
-            Tori_rct.move_ip((-1,0))
         if key_lst[pg.K_UP]:
             dy = -1
             #Tori_rct.move_ip((0,-1))
@@ -32,7 +30,7 @@ def main():
             dy = +1
             #Tori_rct.move_ip((0,+1))
         if key_lst[pg.K_LEFT]:
-            dx = -1
+            dx = -2
             #Tori_rct.move_ip((-1,0))
         if key_lst[pg.K_RIGHT]:
             dx = +2
